@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 
 const Home = () => {
-  const [productData,setProductData] = useState([])
+  const [product,setProduct] = useState([])
 
 
 
@@ -11,13 +11,18 @@ const Home = () => {
     const res = await fetch('https://fakestoreapi.com/products')
 
   const data = await res.json();
-  console.log(data)
-  setProductData(data)
+  //console.log(data)
+  setProduct(data)
 
 
   }
 
-  ProductData()
+  console.log(product.find(p=>p.id))
+  useEffect (()=>{
+ProductData()
+  },[])
+
+  
 
 
 
@@ -26,7 +31,13 @@ const Home = () => {
     
    <>
    <h1>Redux Store </h1>
-   <h3></h3>
+   {product.map(prod=>(
+    <div key={prod.id}>
+
+      <h3>{prod.title}</h3>
+
+    </div>
+   ))}
    </>
   )
 }
