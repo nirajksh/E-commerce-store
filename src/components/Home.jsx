@@ -5,6 +5,9 @@ const Home = () => {
   const [product,setProduct] = useState([])
 
 
+ useEffect (()=>{
+ProductData()
+  },[])
 
   async function ProductData (){
 
@@ -17,10 +20,8 @@ const Home = () => {
 
   }
 
-  console.log(product.find(p=>p.id))
-  useEffect (()=>{
-ProductData()
-  },[])
+  //console.log(product.find(p=>p.id))
+ 
 
   
 
@@ -30,7 +31,7 @@ ProductData()
   return (
     
    <>
-   <h1>Redux Store </h1>
+   <h1 class="font-bold">Redux Store </h1>
    {product.map(prod=>(
     <div key={prod.id}>
 
