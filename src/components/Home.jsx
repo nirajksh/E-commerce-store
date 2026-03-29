@@ -20,7 +20,7 @@ ProductData()
 
   }
 
-  //console.log(product.find(p=>p.id))
+  console.log(product.find(p=>p.id))
  
 
   
@@ -31,14 +31,27 @@ ProductData()
   return (
     
    <>
-   <h1 class="font-bold">Redux Store </h1>
-   {product.map(prod=>(
-    <div key={prod.id}>
+   <h1 class="font-bold ">Redux Store </h1>
+   <div class="flex flex-wrap justify-center gap-4 p-5">{product.map(prod=>(
+    <div class="w-56 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 ">
+    <div class="flex flex-col  bg-slate-150 justify-start " key={prod.id} >
+<img class="w-full h-40 object-contain bg-gray-100"  src={prod.image} alt='' />
 
-      <h3>{prod.title}</h3>
+<div class="p-4">
+        <h3 class="text-sm font-semibold text-gray-800 truncate">
+          {prod.title}
+        </h3>
+
+        <p class="text-green-600 font-bold text-lg mt-2">
+          ₹{prod.price}
+        </p>
+      </div>
 
     </div>
+    </div>
+    
    ))}
+   </div>
    </>
   )
 }
