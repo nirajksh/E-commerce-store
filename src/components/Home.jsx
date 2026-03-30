@@ -23,15 +23,21 @@ ProductData()
   console.log(product.find(p=>p.id))
  
 
-  
+ function handleAdd(prod){
 
+  console.log(prod.length)
+
+ }
 
 
    
   return (
     
    <>
-   <h1 class="font-bold ">Redux Store </h1>
+   <div class="flex font-bold bg-slate-200 p-4 rounded-md ">
+    <h1 class="mx-6">Redux Store </h1>
+    <span class="text-end">Count</span>
+   </div>
    <div class="flex flex-wrap justify-center gap-4 p-5">{product.map(prod=>(
     <div class="w-56 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 ">
     <div class="flex flex-col  bg-slate-150 justify-start " key={prod.id} >
@@ -45,8 +51,9 @@ ProductData()
         <p class="text-green-600 font-bold text-lg mt-2">
           ₹{prod.price}
         </p>
+        
       </div>
-
+<button class="bg-yellow-300 border p-1 rounded-lg m-2 " onClick={()=> handleAdd(prod)}>Add to cart</button>
     </div>
     </div>
     
