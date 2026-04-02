@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../cartSlice';
 
 const Home = () => {
   const [product,setProduct] = useState([])
 
-
  useEffect (()=>{
+
 ProductData()
   },[])
+
+const dispatch = useDispatch()
 
   async function ProductData (){
 
@@ -25,7 +29,7 @@ ProductData()
 
  function handleAdd(prod){
 
-  console.log(prod.length)
+  dispatch(addItem(prod))
 
  }
 

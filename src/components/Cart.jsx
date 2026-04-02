@@ -1,8 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
+const cartItem = useSelector((store)=>store.cart.cartItem)
+
+console.log(cartItem)
+
   return (
-    <div>Cart</div>
+    <div>Cart
+      {cartItem}
+    </div>
   )
 }
 
